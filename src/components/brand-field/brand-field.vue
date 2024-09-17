@@ -1,7 +1,7 @@
 <template>
   <div
     class="field"
-    :class="fieldHolderClass"
+    :class="computedErrorClass + ' ' + fieldHolderClass"
   >
     <label
       class="field__label"
@@ -28,8 +28,6 @@
       type="tel"
       :value="modelValue"
       @input="updateField"
-      :required="true"
-      pattern=".{18,18}"
       placeholder="+38(099) 999-99-99"
       v-maska="phoneMaskOptions"
     />
@@ -60,21 +58,39 @@
       @input="updateField"
       :required="required"
     ></textarea>
+    <template v-if="errors?.length">
+    <div
+      v-for="error in errors"
+      class="error-row"
+    >
+      {{$t(error)}}
+      <GoogleIcon name="error" />
+    </div>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
 import GoogleIcon from "@/components/google-icon/google-icon.vue";
 import { vMaska } from "maska/vue"
+import {computed} from "vue";
 
 const phoneMaskOptions ={
   mask: "+38(0##) ###-##-##",
   eager: false
 }
 
+const computedErrorClass = computed(() => {
+  return props.errors?.length ? '--error' : ''
+})
+
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
   modelValue: [String, Number],
+  errors: {
+    type: Array,
+    default: () => []
+  },
   required: {
     type: Boolean,
     default: false
@@ -156,6 +172,28 @@ const updateFieldByButton = (flag) => {
     min-height: 70px;
   }
 
+  &.--error{
+    input,
+    input:focus-visible,
+    textarea,
+    textarea:focus-visible{
+      border-color: red;
+    }
+
+    .error-row{
+      color: red;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      margin-top: 4px;
+      gap: 5px;
+      justify-content: flex-end;
+      span{
+        font-size: 16px;
+      }
+    }
+  }
+
 }
 
 .--persons{
@@ -173,5 +211,11 @@ const updateFieldByButton = (flag) => {
     align-items: center;
     gap: 15px;
   }
+}
+
+.error-row{
+  color: red;
+  display: flex;
+  align-items: center;
 }
 </style>

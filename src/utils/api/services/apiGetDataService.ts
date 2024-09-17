@@ -14,6 +14,10 @@ const apiMap: any = {
   orderCreate: {
     method: ApiRequestMethod.POST,
     route: ApiRoutes.getData.orderCreate
+  },
+  isOrderTime: {
+    method: ApiRequestMethod.GET,
+    route: ApiRoutes.getData.isOrderTime
   }
 }
 

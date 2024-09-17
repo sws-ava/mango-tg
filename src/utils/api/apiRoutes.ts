@@ -8,7 +8,8 @@ const apiRoutes = {
   getData: {
     blocks: '/blocks',
     menu: '/menu',
-    orderCreate: '/order-create'
+    orderCreate: '/order-create',
+    isOrderTime: '/is-order-time'
   },
   locales:{
     list: '/locales'

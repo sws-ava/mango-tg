@@ -6,27 +6,26 @@
       <BrandField
         :label-title="t('cartPage.name')"
         v-model="orderForm.name"
-        :required="true"
         tabindex="1"
+        :errors="validationErrors.name"
       />
       <BrandField
         :label-title="t('cartPage.phone')"
         v-model="orderForm.phone"
-        :required="true"
         field-type="phone"
+        :errors="validationErrors.phone"
       />
       <BrandField
         :label-title="t('cartPage.address')"
         v-model="orderForm.address"
-        :required="true"
         tabindex="2"
+        :errors="validationErrors.address"
       />
       <BrandField
         field-type="input-persons"
         field-holder-class="--persons"
         :label-title="t('cartPage.persons')"
         v-model="orderForm.persons"
-        :required="true"
         tabindex="3"
       />
       <BrandField
@@ -80,7 +79,42 @@ const orderForm: Ref = ref({
 })
 
 
+const validationErrors:Ref = ref({
+  name: [],
+  phone: [],
+  address: [],
+})
+
+const formValidation = () => {
+  let isValidate = true
+  // name
+  validationErrors.value.name = []
+  if(orderForm.value.name.length < 2){
+    validationErrors.value.name.push('validation.empty')
+    isValidate = false
+  }
+
+  // phone
+  validationErrors.value.phone = []
+  if(orderForm.value.phone.length < 18){
+    validationErrors.value.phone.push('validation.missingNumbers')
+    isValidate = false
+  }
+
+  // address
+  validationErrors.value.address = []
+  if(orderForm.value.address.length < 2){
+    validationErrors.value.address.push('validation.empty')
+    isValidate = false
+  }
+  return isValidate
+}
+
+
 const createOrderHandler = async () => {
+  const isValidate = formValidation()
+  if (!isValidate) return
+
   const data = {
     cart: cartStore.cart,
     userInfo: cartStore.userInfo
@@ -107,6 +141,19 @@ watch(orderForm.value, () => {
   localStorage.setItem('name', orderForm.value.name)
   localStorage.setItem('phone', orderForm.value.phone)
 }, {deep: true})
+
+watch(() => orderForm.value.name, (newName, prevName) => {
+    validationErrors.value.name = []
+  }
+);
+watch(() => orderForm.value.phone, (newName, prevName) => {
+    validationErrors.value.phone = []
+  }
+);
+watch(() => orderForm.value.address, (newName, prevName) => {
+    validationErrors.value.address = []
+  }
+);
 
 </script>
 
