@@ -1,0 +1,58 @@
+.icon {
+  display: block;
+
+  &.rotate90 {
+    transform: rotate(90deg);
+  }
+
+  &.rotate-90 {
+    transform: rotate(-90deg);
+  }
+
+  &.rotate180 {
+    transform: rotate(180deg);
+  }
+
+  &__checkbox-default {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    background: #FFFFFF;
+    border: 2px solid #EBEDF1;
+    border-radius: 4px;
+    color: transparent;
+
+    &.--checked {
+      padding: 2px;
+      border: 1px solid #EBEDF1;
+      background: #63A6BB;
+      color: #FFFFFF;
+    }
+    &.--disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &__checkbox-favorite {
+    width: 17px;
+    opacity: .1;
+    cursor: pointer;
+
+    &.--checked {
+      opacity: 1;
+
+      use {
+        fill: #E91C00;
+      }
+
+    }
+
+  }
+
+  &__refresh {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-secondary);
+  }
+}
