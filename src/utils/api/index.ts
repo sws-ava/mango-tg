@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from 'axios'
-import router from '@/router'
 import { useUserSession } from '@/store/userSession'
 
 export default abstract class ApiGateway {
@@ -18,7 +17,6 @@ export default abstract class ApiGateway {
           : localStorage.getItem('token')
 
         if (token) {
-          // config.headers['Authorization'] = `Bearer 80|DdKeiQ1ZOjiWYM4Oa5fMLphaFo8ZoPnz2TkfzerN`;
           config.headers['Authorization'] = `Bearer ${token}`
           config.headers['Content-Type'] = config.isFileUpload ? 'multipart/form-data' : 'application/json'
           config.headers['Access-Control-Allow-Origin'] = ''

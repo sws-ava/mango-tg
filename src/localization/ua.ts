@@ -1,4 +1,4 @@
-import { LocaleMessages } from 'vue-i18n'
+import {LocaleMessages} from 'vue-i18n'
 
 const ua: LocaleMessages<any> = {
   testLocale: {
@@ -7,7 +7,7 @@ const ua: LocaleMessages<any> = {
   breadCrumbs: {
     all: 'Все меню'
   },
-  leftNavi:{
+  leftNavi: {
     delivery: 'Доставка',
     deliveryTimeTitle: 'Приймаємо замовлення'
   },
@@ -16,7 +16,7 @@ const ua: LocaleMessages<any> = {
     toMenu: "До меню",
     makeOrder: "Замовити"
   },
-  nots:{
+  nots: {
     success: "Чудово!",
     variantAdded: "Страва додана до кошика"
   },
@@ -30,6 +30,8 @@ const ua: LocaleMessages<any> = {
     address: "Адреса",
     persons: "Персон",
     comment: "Коментар до замовлення",
+    saveData: "Зберегти у додатку ім'я та телефон для майбутніх замовлень.",
+    orderGet: 'Дуже дякуємо за замовлення! <br> Якщо його не підтвердили за Вашим номером телефону протягом 15 хвилин, <br> зателефонуйте будь ласка:',
   }
 }
 

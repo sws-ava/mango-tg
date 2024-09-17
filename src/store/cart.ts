@@ -4,11 +4,33 @@ export const useCartStore = defineStore('cartStore', {
 
   state: () => {
     return {
-      cart: []
+      cart: [],
+      userInfo: {
+        name: '',
+        phone: '',
+        address: '',
+        persons: 1,
+        comment: '',
+      }
     }
   },
 
   actions: {
+    setUserInfo(userInfo:any){
+      this.userInfo = userInfo
+    },
+    clearCart(){
+      this.cart = []
+    },
+    clearUserInfo(){
+      this.userInfo = {
+        name: '',
+        phone: '',
+        address: '',
+        persons: 1,
+        comment: '',
+      }
+    },
     addToCart(variant: any, product: any) {
       console.log(variant, product)
       const isRow = this.cart.find((el: any) => el.variant_id === variant.id)

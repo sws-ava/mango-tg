@@ -11,6 +11,10 @@ const apiMap: any = {
     method: ApiRequestMethod.GET,
     route: ApiRoutes.getData.menu,
   },
+  orderCreate: {
+    method: ApiRequestMethod.POST,
+    route: ApiRoutes.getData.orderCreate
+  }
 }
 
 const apiMapServices = createServices(apiMap)

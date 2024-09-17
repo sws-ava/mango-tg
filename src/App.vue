@@ -25,6 +25,10 @@ const blockStore = useBlocksStore()
 const menu = useMenuStore()
 const appLoader = useAppLoader()
 
+// TODO
+// срань уберать ниже
+// выносить getData в appClient
+
 const getData = async () => {
   appLoader.setAppLoading(true)
   const response = await ApiGetDataService.menu({})

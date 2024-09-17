@@ -17,3 +17,8 @@ window.Telegram.WebApp.setHeaderColor('#010202')
 window.Telegram.WebApp.ready()
 
 app.mount('#app')
+
+// убрать стор
+// разбиение по моделям
+
+//типы telegram app

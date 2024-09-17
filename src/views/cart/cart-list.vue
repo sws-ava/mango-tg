@@ -65,9 +65,9 @@ const currency = computed(() => {
 
 const showOrderFormHandler = async () => {
   await showOrderFormAction()
-  if(showOrderForm.value){
-    document.getElementById("cartForm").scrollIntoView();
-  }
+  // if(showOrderForm.value){
+  //   document.getElementById("cartForm").scrollIntoView();
+  // }
 }
 const showOrderFormAction = () => {
   showOrderForm.value = !showOrderForm.value

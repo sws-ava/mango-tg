@@ -24,28 +24,13 @@ const router = createRouter({
       name: 'Cart',
       component: () => import('@/views/cart.vue'),
     },
-    // {
-    //     path: '/register',
-    //     name: 'Register',
-    //     component: () => import('@/views/Register.vue'),
-    //   meta: {
-    //     zeroAuth: true,
-    //   }
-    // },
-    // {
-    //   path: '/dashboard',
-    //   name: 'Dashboard',
-    //   component: () => import('@/views/Dashboard.vue')
-    // },
+    {
+      path: '/order-accepted',
+      name: 'OrderAccepted',
+      component: () => import('@/views/cart/order-accepted.vue'),
+    },
 
   ]
 })
-
-// router.beforeEach((to, from, next) => {
-//   const userSession = useUserSession()
-//
-//   if (to.meta.zeroAuth === undefined && !userSession.isLoggedIn) next({ name: 'Main' })
-//   else next()
-// })
 
 export default router
