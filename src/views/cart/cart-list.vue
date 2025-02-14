@@ -40,6 +40,7 @@
     {{ t('cartPage.total') }}: {{ totalCart }} {{ currency }}
   </div>
   <BrandButton
+    v-if="menu.isOnlineOrder"
     classes="--toOrder"
     :title="t('cartPage.toOrder')"
     @click="showOrderFormHandler"
@@ -55,9 +56,11 @@ import {useCartStore} from "@/store/cart";
 import {computed, Ref, ref, watch} from "vue";
 import BrandButton from "@/components/brand-button/brand-button.vue";
 import CartForm from "@/views/cart/cart-form.vue";
+import {useMenuStore} from "@/store/menu";
 
 const {t, locale, fallbackLocale} = useI18n()
 const cartStore = useCartStore()
+const menu = useMenuStore()
 
 const currency = computed(() => {
   return import.meta.env.VITE_BASE_CURRENCY

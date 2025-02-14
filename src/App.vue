@@ -34,7 +34,7 @@ const getData = async () => {
   const response = await ApiGetDataService.menu({})
   if (response.status.toString().startsWith('20')) {
     blockStore.setBlocks(response.data.blocks)
-    menu.setMenu(response.data.categories)
+    menu.setMenu(response.data.categories, response.data.catalogSettings.is_online_order)
     lastVersionHandler(response.data.version)
     appLoader.setAppLoading(false)
   }else{

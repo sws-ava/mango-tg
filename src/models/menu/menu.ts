@@ -22,4 +22,5 @@ export interface ICategory {
 
 export interface IMenu {
   menu: ICategory[],
+  isOnlineOrder: boolean
 }

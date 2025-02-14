@@ -11,7 +11,7 @@
     <div class="price">
       {{ Math.round(variant.price) }} {{currency}}
       <div
-        v-if="isWorkingTimeChecker()"
+        v-if="isWorkingTimeChecker() && menu.isOnlineOrder"
         @click="addVariantToCartHandler(variant, productModalStore.product)"
       >
       <Icon
@@ -31,10 +31,12 @@ import Icon from "@/components/icon/icon.vue";
 import {useCartStore} from "@/store/cart";
 import {useNotifications} from "@/store/notifications";
 import {isWorkingTimeChecker} from "@/utils/isWorkingTimeChecker";
+import {useMenuStore} from "@/store/menu";
 
 const {locale, fallbackLocale} = useI18n()
 const productModalStore = useProductModalStore()
 const cartStore = useCartStore()
+const menu = useMenuStore()
 
 const {t} = useI18n()
 const nots = useNotifications()

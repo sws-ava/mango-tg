@@ -37,6 +37,9 @@ const ua: LocaleMessages<any> = {
     empty: 'Поле не може бути порожнім',
     missingNumbers: 'Не вистачає цифр',
   },
+  noOrder: {
+    ttl: 'Зараз замовлення на доставку не приймаються'
+  }
 }
 
 export default ua

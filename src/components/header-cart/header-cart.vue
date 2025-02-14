@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="menu.isOnlineOrder"
     class="cart-holder"
     :class="route.name === 'Cart' ? ' --current-route' : ''"
     @click="navigateToCartHandler"
@@ -18,9 +19,11 @@ import {computed, Ref, ref} from "vue";
 import router from "@/router";
 import {useRoute} from "vue-router";
 import {useCartStore} from "@/store/cart";
+import {useMenuStore} from "@/store/menu";
 
 const cartStore = useCartStore()
 const route = useRoute()
+const menu = useMenuStore()
 
 const countOrder = computed(()=>{
   let amountTotal = 0

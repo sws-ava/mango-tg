@@ -30,7 +30,6 @@ import {useCartStore} from "@/store/cart";
 import {ref} from "vue";
 import EmptyCart from "@/views/cart/empty-cart.vue";
 import CartList from "@/views/cart/cart-list.vue";
-import CartForm from "@/views/cart/cart-form.vue";
 import {isWorkingTimeChecker} from "@/utils/isWorkingTimeChecker";
 import ContactRow from "@/components/left-navigation/contact-row/contact-row.vue";
 

@@ -37,6 +37,9 @@ const ru: LocaleMessages<any> = {
     empty: 'Поле не может быть пустым',
     missingNumbers: 'Не хватает цифр',
   },
+  noOrder: {
+    ttl: 'Сейчас заказы на доставку не принимаются'
+  }
 }
 
 export default ru
